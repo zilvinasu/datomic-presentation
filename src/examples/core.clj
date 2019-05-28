@@ -24,6 +24,10 @@
               :where [?e :person/email ?email]]
      :args  [db email]}))
 
+(defn pull-by-uuid [db uuid]
+  "Takes `db`, `uuid` instances and pulls entity from the db"
+  (d/pull db '[*] [:uuid uuid]))
+
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
