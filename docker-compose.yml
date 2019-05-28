@@ -1,0 +1,11 @@
+version: "3"
+services:
+  datomic:
+    image: "akiel/datomic-free:0.9.5703-2"
+    volumes:
+      - ./data:/data:rw
+    environment:
+      - ADMIN_PASSWORD=admin
+      - DATOMIC_PASSWORD=datomic
+    ports:
+      - "4334-4336:4334-4336"
