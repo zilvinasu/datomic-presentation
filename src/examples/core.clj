@@ -21,7 +21,7 @@
   (d/query
     {:query '[:find (pull ?e [*])
               :in $ ?email
-              :where [?e :contact/email ?email]]
+              :where [?e :person/email ?email]]
      :args  [db email]}))
 
 (defn -main
