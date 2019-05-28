@@ -1,0 +1,6 @@
+[{:person/first-name "JSON"
+  :person/last-name  "McNugget"
+  :person/email      "mcnugget@mailinator.com"}
+ {:person/first-name "Jo"
+  :person/last-name  "Jenkins"
+  :person/email      "jenkins@mailinator.com"}]

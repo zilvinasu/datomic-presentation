@@ -1,0 +1,7 @@
+[[:db/add "gm-tid" :person/first-name "JSON"]
+ [:db/add "gm-tid" :person/last-name "McNugget"]
+ [:db/add "gm-tid" :person/email "mcnugget@mailinator.com"]
+
+ [:db/add "pp-tid" :person/first-name "Jo"]
+ [:db/add "pp-tid" :person/last-name "Jenkins"]
+ [:db/add "pp-tid" :person/email "jenkins@mailinator.com"]]
