@@ -1,0 +1,14 @@
+[{:db/ident       :person/first-name
+  :db/cardinality :db.cardinality/one
+  :db/valueType   :db.type/string
+  :db/doc         "First name of the person"}
+
+ {:db/ident       :person/last-name
+  :db/cardinality :db.cardinality/one
+  :db/valueType   :db.type/string
+  :db/doc         "Last name of the person"}
+
+ {:db/ident       :person/email
+  :db/cardinality :db.cardinality/one
+  :db/valueType   :db.type/string
+  :db/doc         "Email of the person"}]
