@@ -15,6 +15,15 @@
     (d/create-database db-uri)
     (d/connect db-uri)))
 
+(defn q-by-email [db email]
+  "Takes `db`, `email` and pulls the entity
+  for which the email matches"
+  (d/query
+    {:query '[:find (pull ?e [*])
+              :in $ ?email
+              :where [?e :contact/email ?email]]
+     :args  [db email]}))
+
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
