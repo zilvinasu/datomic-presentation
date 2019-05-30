@@ -1,17 +1,19 @@
 (ns examples.query
   (:require [datomic.api :as d]))
 
-
 (defn person-by-email [db email]
   "Takes `db`, `email` and pulls the entity
   for which the email matches"
   (d/query
-    {:query '[:find (pull ?e [*])
+    {:query '[:find ?e
               :in $ ?email
               :where [?e :person/email ?email]]
      :args  [db email]}))
 
 
-(defn pull-by-uuid [db uuid]
+(defn pull-by-email [db email]
   "Takes `db`, `uuid` instances and pulls entity from the db"
-  (d/pull db '[*] [:uuid uuid]))
+  (d/pull
+    db
+    '[:person/first-name :person/last-name :person/email]
+    [:person/email email]))
