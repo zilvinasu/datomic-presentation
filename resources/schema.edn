@@ -3,6 +3,10 @@
   :db/valueType   :db.type/uuid
   :db/unique      :db.unique/identity}
 
+ {:db/ident       :person/score
+  :db/cardinality :db.cardinality/one
+  :db/valueType   :db.type/long}
+
  {:db/ident       :person/first-name
   :db/cardinality :db.cardinality/one
   :db/valueType   :db.type/string
@@ -15,5 +19,6 @@
 
  {:db/ident       :person/email
   :db/cardinality :db.cardinality/one
+  :db/unique      :db.unique/value
   :db/valueType   :db.type/string
   :db/doc         "Email of the person"}]
