@@ -4,11 +4,11 @@
 (defn person-by-email [db email]
   "Takes `db`, `email` and pulls the entity
   for which the email matches"
-  (d/query
-    {:query '[:find ?e
-              :in $ ?email
-              :where [?e :person/email ?email]]
-     :args  [db email]}))
+  (d/q
+    '[:find ?e
+      :in $ ?email
+      :where [?e :person/email ?email]]
+    db email))
 
 
 (defn pull-by-email [db email]
