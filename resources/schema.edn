@@ -1,13 +1,4 @@
-[{:db/ident       :uuid
-  :db/cardinality :db.cardinality/one
-  :db/valueType   :db.type/uuid
-  :db/unique      :db.unique/identity}
-
- {:db/ident       :person/score
-  :db/cardinality :db.cardinality/one
-  :db/valueType   :db.type/long}
-
- {:db/ident       :person/first-name
+[{:db/ident       :person/first-name
   :db/cardinality :db.cardinality/one
   :db/valueType   :db.type/string
   :db/doc         "First name of the person"}
@@ -19,6 +10,15 @@
 
  {:db/ident       :person/email
   :db/cardinality :db.cardinality/one
-  :db/unique      :db.unique/value
+  :db/unique      :db.unique/identity
   :db/valueType   :db.type/string
-  :db/doc         "Email of the person"}]
+  :db/doc         "Email of the person"}
+
+ {:db/ident :person/normalize-last-name
+  :db/fn    #db/fn {:lang   "clojure"
+                    :params [db email]
+                    :code   (let [person (d/entity db [:person/email email])
+                                  normalized-last-name (clojure.string/upper-case (:person/last-name person))]
+                              [{:db/id            (:db/id person)
+                                :person/last-name normalized-last-name}])}
+  :db/doc   "Takes db, email and normalizes person's last name"}]
