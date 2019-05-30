@@ -1,3 +1,4 @@
-/data
+it a/data
 *.swp
 *.iml
+.lein-failures
